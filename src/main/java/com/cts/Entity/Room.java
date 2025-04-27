@@ -1,8 +1,6 @@
-
 package com.cts.Entity;
 
 import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,23 +13,26 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name="Room")
+@Table(name = "Room")
 public class Room {
 
-	//RoomID, HotelID, Type, Price, Availability, Features
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int roomId;
-	@ManyToOne
-	@JoinColumn(name = "hotel_Id")
-	private int hotelId;
-	private String type;
-	private int price;
-	private String availability;
-	private String features;
-	
-	@OneToMany(mappedBy = "bookingid")
-	private List<Booking> Bookings;
-	
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long roomId;
+
+    @ManyToOne
+    @JoinColumn(name = "hotelid")
+    private Hotel hotel;
+
+    private String type;
+    private int price;
+    private String availability;
+    private String features;
+
+    @OneToMany(mappedBy = "room")
+    private List<Booking> bookings;
 }

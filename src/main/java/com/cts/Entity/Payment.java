@@ -16,11 +16,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="Payment")
+@Table(name = "Payment")
 public class Payment {
 
-	//PaymentID, UserID, BookingID, Amount, Status, PaymentMethod
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long paymentId;
 

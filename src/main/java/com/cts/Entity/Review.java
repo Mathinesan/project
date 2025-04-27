@@ -1,8 +1,6 @@
 package com.cts.Entity;
 
-//import java.sql.Date;
 import java.time.LocalDateTime;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,24 +16,22 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="Review")
+@Table(name = "Review")
 public class Review {
 
-	//ReviewID, UserID, HotelID, Rating, Comment, Timestamp
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private Long reviewId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long reviewId;
 
-	 @ManyToOne
-	 @JoinColumn(name = "userid")
-	 private User user;
+    @ManyToOne
+    @JoinColumn(name = "userid")
+    private User user;
 
-	 @ManyToOne
-	 @JoinColumn(name = "hotelid")
-	 private Hotel hotel;
+    @ManyToOne
+    @JoinColumn(name = "hotelid")
+    private Hotel hotel;
 
-	 private Integer rating;		
-	 private String comment;
-	 private LocalDateTime timestamp;
-
+    private Integer rating;
+    private String comment;
+    private LocalDateTime timestamp;
 }
